@@ -3,16 +3,17 @@ import XCTest
 @testable import PSSCore
 
 final class StatusCacheTests: XCTestCase {
-    private let directory = URL(fileURLWithPath: #filePath)
-        .deletingLastPathComponent()
-        .appendingPathComponent("StatusCacheTests", isDirectory: true)
+    private var directory: URL!
 
     override func setUpWithError() throws {
-        try? FileManager.default.removeItem(at: directory)
+        directory = URL(fileURLWithPath: #filePath)
+            .deletingLastPathComponent()
+            .appendingPathComponent(".StatusCacheTests-\(UUID().uuidString)", isDirectory: true)
         try FileManager.default.createDirectory(at: directory, withIntermediateDirectories: true)
     }
 
     override func tearDownWithError() throws {
+        defer { directory = nil }
         try? FileManager.default.removeItem(at: directory)
     }
 
@@ -49,5 +50,25 @@ final class StatusCacheTests: XCTestCase {
         try cache.save(second)
 
         XCTAssertEqual(cache.load(), second)
+    }
+
+    func testSaveThrowsWhenContainerIsUnavailable() {
+        XCTAssertThrowsError(try StatusCache(directory: nil).save(.unknown(at: .now))) { error in
+            XCTAssertEqual(error as? StatusCache.Error, .containerUnavailable)
+        }
+    }
+
+    func testRoundTripPreservesFractionalSeconds() throws {
+        let cache = StatusCache(directory: directory)
+        let snapshot = StatusSnapshot(
+            updatedAt: Date(timeIntervalSinceReferenceDate: 123.456_789),
+            statuses: []
+        )
+
+        try cache.save(snapshot)
+
+        let loaded = try XCTUnwrap(cache.load())
+        XCTAssertEqual(loaded.updatedAt.timeIntervalSinceReferenceDate, snapshot.updatedAt.timeIntervalSinceReferenceDate, accuracy: 0.000_001)
+        XCTAssertEqual(loaded.statuses, snapshot.statuses)
     }
 }

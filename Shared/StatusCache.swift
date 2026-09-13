@@ -1,6 +1,10 @@
 import Foundation
 
 public struct StatusCache: Sendable {
+    public enum Error: Swift.Error, Equatable {
+        case containerUnavailable
+    }
+
     private static let filename = "status-snapshot.json"
     private let directory: URL?
 
@@ -12,7 +16,7 @@ public struct StatusCache: Sendable {
         guard let fileURL else { return nil }
         do {
             let decoder = JSONDecoder()
-            decoder.dateDecodingStrategy = .iso8601
+            decoder.dateDecodingStrategy = .secondsSince1970
             return try decoder.decode(StatusSnapshot.self, from: Data(contentsOf: fileURL))
         } catch {
             return nil
@@ -20,10 +24,10 @@ public struct StatusCache: Sendable {
     }
 
     public func save(_ snapshot: StatusSnapshot) throws {
-        guard let fileURL else { return }
+        guard let fileURL else { throw Error.containerUnavailable }
         try FileManager.default.createDirectory(at: fileURL.deletingLastPathComponent(), withIntermediateDirectories: true)
         let encoder = JSONEncoder()
-        encoder.dateEncodingStrategy = .iso8601
+        encoder.dateEncodingStrategy = .secondsSince1970
         try encoder.encode(snapshot).write(to: fileURL, options: .atomic)
     }
 

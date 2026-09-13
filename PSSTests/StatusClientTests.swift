@@ -49,6 +49,29 @@ final class StatusClientTests: XCTestCase {
         XCTAssertEqual(snapshot.statuses.map(\.service), Service.allCases)
         XCTAssertEqual(Set(snapshot.statuses.map(\.service)).count, Service.allCases.count)
     }
+
+    func testFetchAllUsesFirstConfiguredProviderForDelayedDuplicate() async {
+        let snapshot = await StatusClient(providers: [
+            DelayedStateProvider(service: .github, state: .operational, delay: .milliseconds(100)),
+            DelayedStateProvider(service: .github, state: .outage, delay: .zero)
+        ]).fetchAll()
+
+        XCTAssertEqual(snapshot.statuses.first?.state, .operational)
+    }
+
+    func testLiveFactoryHasCanonicalSevenProviders() {
+        let providers = ProviderFactory.live
+
+        XCTAssertEqual(providers.map(\.service), [.github, .openAI, .claude, .aws, .grok, .deepSeek, .cursor])
+        XCTAssertEqual(Set(providers.map(\.service)).count, 7)
+        XCTAssertEqual((providers[0] as? StatuspageProvider)?.endpoint.absoluteString, "https://www.githubstatus.com/api/v2/status.json")
+        XCTAssertEqual((providers[1] as? StatuspageProvider)?.endpoint.absoluteString, "https://status.openai.com/api/v2/status.json")
+        XCTAssertEqual((providers[2] as? StatuspageProvider)?.endpoint.absoluteString, "https://status.claude.com/api/v2/status.json")
+        XCTAssertEqual((providers[3] as? AWSProvider)?.endpoint.absoluteString, "https://health.aws.amazon.com/public/currentevents")
+        XCTAssertEqual((providers[4] as? FeedProvider)?.endpoint.absoluteString, "https://status.x.ai/feed.xml")
+        XCTAssertEqual((providers[5] as? FeedProvider)?.endpoint.absoluteString, "https://status.deepseek.com/feed.rss")
+        XCTAssertEqual((providers[6] as? StatuspageProvider)?.endpoint.absoluteString, "https://status.cursor.com/api/v2/status.json")
+    }
 }
 
 private struct ImmediateProvider: StatusProvider {
@@ -91,5 +114,16 @@ private actor ConcurrencyTracker {
 
     func leave() {
         activeFetches -= 1
+    }
+}
+
+private struct DelayedStateProvider: StatusProvider {
+    let service: Service
+    let state: ServiceState
+    let delay: Duration
+
+    func fetch(using transport: any HTTPTransport) async throws -> ServiceStatus {
+        try await Task.sleep(for: delay)
+        return ServiceStatus(service: service, state: state)
     }
 }

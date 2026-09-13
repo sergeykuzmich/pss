@@ -28,6 +28,10 @@ targets:
       path: PSS/Info.plist
     entitlements:
       path: PSS/PSS.entitlements
+      properties:
+        com.apple.security.app-sandbox: true
+        com.apple.security.application-groups:
+          - group.com.sergeykuzmich.pss
     dependencies:
       - target: PSSCore
         embed: true
@@ -44,8 +48,15 @@ targets:
       - PSSWidget
     info:
       path: PSSWidget/Info.plist
+      properties:
+        NSExtension:
+          NSExtensionPointIdentifier: com.apple.widgetkit-extension
     entitlements:
       path: PSSWidget/PSSWidget.entitlements
+      properties:
+        com.apple.security.app-sandbox: true
+        com.apple.security.application-groups:
+          - group.com.sergeykuzmich.pss
     dependencies:
       - target: PSSCore
     settings:

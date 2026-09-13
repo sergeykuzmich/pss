@@ -28,18 +28,22 @@
 		69CF96657AD1ACB753A7C5C9 /* PSSCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BBE4AEB089B8E44E165B2778 /* PSSCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		7176A5B32020C5C47C610DC5 /* StatusProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EBF6CB075A92A4D3E851489 /* StatusProvider.swift */; };
 		73417CF07DC956DA2E54ACCB /* deepseek-active.xml in Resources */ = {isa = PBXBuildFile; fileRef = B97A080445DAB5652BE409C7 /* deepseek-active.xml */; };
+		7F9891BA091F4C3B3FED0DF1 /* StatusStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7BBFFEF4830909C146B0A5D /* StatusStore.swift */; };
 		9625F67319332B3CF2C18735 /* xai-resolved.xml in Resources */ = {isa = PBXBuildFile; fileRef = 731371BCA36086CD2CC49E0E /* xai-resolved.xml */; };
 		97A0F291B2AAFF619C4D4307 /* StatusClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3A3759163884F11F66BACE /* StatusClient.swift */; };
 		9CCB1A925FFEC8DF71F801CB /* aws-current-events.json in Resources */ = {isa = PBXBuildFile; fileRef = 5116D79FFA2E1789ED6C9955 /* aws-current-events.json */; };
 		A75A34B1FF943D5B41F13F22 /* ServiceStateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E240D10800DF3C2EC8491C /* ServiceStateTests.swift */; };
 		AAFA4B14B9963C46EADF7674 /* StatuspageProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842BB71FBCF408D33D92F237 /* StatuspageProviderTests.swift */; };
+		AE9183B85B0A5AE8BB2EA839 /* StatusRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDECC3066DB4992A0BCF0A2A /* StatusRowView.swift */; };
 		B7BBB7AFE272A62F9946A02D /* AWSProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD2A9502E744A3E87C3573B5 /* AWSProvider.swift */; };
 		BCB4EF2501AD0528A29D8EC6 /* deepseek-resolved.xml in Resources */ = {isa = PBXBuildFile; fileRef = B185CC320E5977262B4428D3 /* deepseek-resolved.xml */; };
 		C73F2F858F642E7521BEF275 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F42A8B7B1B556863BF754C8 /* Service.swift */; };
+		C86E3B90B2D3FDA7AC361A2B /* MenuBarContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3565194B3F855A1AB9F5237 /* MenuBarContentView.swift */; };
 		DBD2E12AA47BC3565AE8D848 /* statuspage-critical.json in Resources */ = {isa = PBXBuildFile; fileRef = FCED209D76069D4B36496621 /* statuspage-critical.json */; };
 		E2540068190DFCA061275D1D /* StatusCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B1B4631948C2A890B288CA /* StatusCache.swift */; };
 		E69DA97CD8834BCA3E34FE78 /* PSSCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BBE4AEB089B8E44E165B2778 /* PSSCore.framework */; };
 		EBFE18022D52B98E7FAAE59D /* FeedProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B1001D800D1013893DCDDDD /* FeedProvider.swift */; };
+		F4589FB59702F34661CF1756 /* StatusStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF851CBC3B7F91020F72DFC9 /* StatusStoreTests.swift */; };
 		FFE50D162B824068D59F11C8 /* StatusCacheTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 306E1601B35EA6E6AD4C245B /* StatusCacheTests.swift */; };
 /* End PBXBuildFile section */
 
@@ -136,7 +140,9 @@
 		982DA4CBA26F186857B6E49A /* .gitkeep */ = {isa = PBXFileReference; path = .gitkeep; sourceTree = "<group>"; };
 		9ED61BEDE67F58D808726B2E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		AE8CDB73FBF4505CA0EE839D /* statuspage-major.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "statuspage-major.json"; sourceTree = "<group>"; };
+		AF851CBC3B7F91020F72DFC9 /* StatusStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusStoreTests.swift; sourceTree = "<group>"; };
 		B185CC320E5977262B4428D3 /* deepseek-resolved.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "deepseek-resolved.xml"; sourceTree = "<group>"; };
+		B3565194B3F855A1AB9F5237 /* MenuBarContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBarContentView.swift; sourceTree = "<group>"; };
 		B97A080445DAB5652BE409C7 /* deepseek-active.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "deepseek-active.xml"; sourceTree = "<group>"; };
 		BBE4AEB089B8E44E165B2778 /* PSSCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PSSCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEA046211889748188380CAE /* AWSProviderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AWSProviderTests.swift; sourceTree = "<group>"; };
@@ -146,8 +152,10 @@
 		DBCAC992968F039238A42036 /* PSSCoreTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PSSCoreTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5A439AED18C44E70BF87F66 /* PSSWidget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PSSWidget.entitlements; sourceTree = "<group>"; };
 		EACA2D755DF7FCF9B35EFB51 /* StatusClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusClientTests.swift; sourceTree = "<group>"; };
+		F7BBFFEF4830909C146B0A5D /* StatusStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusStore.swift; sourceTree = "<group>"; };
 		FCED209D76069D4B36496621 /* statuspage-critical.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "statuspage-critical.json"; sourceTree = "<group>"; };
 		FD2A9502E744A3E87C3573B5 /* AWSProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AWSProvider.swift; sourceTree = "<group>"; };
+		FDECC3066DB4992A0BCF0A2A /* StatusRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusRowView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -182,6 +190,7 @@
 			isa = PBXGroup;
 			children = (
 				9ED61BEDE67F58D808726B2E /* Info.plist */,
+				B3565194B3F855A1AB9F5237 /* MenuBarContentView.swift */,
 				8393E04D681F73D676A11C07 /* PSS.entitlements */,
 				3852144F2AC76E0737339764 /* PSSApp.swift */,
 			);
@@ -211,6 +220,8 @@
 				0A3A3759163884F11F66BACE /* StatusClient.swift */,
 				243CE78DFB0817548984A042 /* StatuspageProvider.swift */,
 				0EBF6CB075A92A4D3E851489 /* StatusProvider.swift */,
+				FDECC3066DB4992A0BCF0A2A /* StatusRowView.swift */,
+				F7BBFFEF4830909C146B0A5D /* StatusStore.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -242,6 +253,7 @@
 				306E1601B35EA6E6AD4C245B /* StatusCacheTests.swift */,
 				EACA2D755DF7FCF9B35EFB51 /* StatusClientTests.swift */,
 				842BB71FBCF408D33D92F237 /* StatuspageProviderTests.swift */,
+				AF851CBC3B7F91020F72DFC9 /* StatusStoreTests.swift */,
 				8DC891C97ABB1867700B9E46 /* Fixtures */,
 			);
 			path = PSSTests;
@@ -417,6 +429,8 @@
 				E2540068190DFCA061275D1D /* StatusCache.swift in Sources */,
 				97A0F291B2AAFF619C4D4307 /* StatusClient.swift in Sources */,
 				7176A5B32020C5C47C610DC5 /* StatusProvider.swift in Sources */,
+				AE9183B85B0A5AE8BB2EA839 /* StatusRowView.swift in Sources */,
+				7F9891BA091F4C3B3FED0DF1 /* StatusStore.swift in Sources */,
 				1D99B07BBA3F33DAEE387A2F /* StatuspageProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -434,6 +448,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C86E3B90B2D3FDA7AC361A2B /* MenuBarContentView.swift in Sources */,
 				53B9D54635ACBDAE6E3E1D09 /* PSSApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -447,6 +462,7 @@
 				A75A34B1FF943D5B41F13F22 /* ServiceStateTests.swift in Sources */,
 				FFE50D162B824068D59F11C8 /* StatusCacheTests.swift in Sources */,
 				42D5FBE8C0B09D208EA501DA /* StatusClientTests.swift in Sources */,
+				F4589FB59702F34661CF1756 /* StatusStoreTests.swift in Sources */,
 				AAFA4B14B9963C46EADF7674 /* StatuspageProviderTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

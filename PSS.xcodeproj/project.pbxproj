@@ -9,16 +9,23 @@
 /* Begin PBXBuildFile section */
 		09C84F3716DDFC0E5D11BCFA /* PSSWidget.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 849CF2FD52E30DD587262982 /* PSSWidget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		162BE9BB318378F4D2084447 /* PSSWidgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = D36C38592CB843534A3E0AC0 /* PSSWidgetBundle.swift */; };
+		1D99B07BBA3F33DAEE387A2F /* StatuspageProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 243CE78DFB0817548984A042 /* StatuspageProvider.swift */; };
 		20F9D1A7E42A1CC030D04C6B /* PSSCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BBE4AEB089B8E44E165B2778 /* PSSCore.framework */; };
 		26841BD4DE094F4790E33198 /* PSSCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BBE4AEB089B8E44E165B2778 /* PSSCore.framework */; };
 		2B219B01E2CD5AFF78D3C64A /* StatusWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC8844B9693C3A99A7DB648 /* StatusWidget.swift */; };
 		2CEEE8F7EE133EDEA72A7322 /* PSSCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BBE4AEB089B8E44E165B2778 /* PSSCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		359E312248F310B9ECA9B6D5 /* ServiceState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FD6BDC1D42EB4EA90C175C /* ServiceState.swift */; };
 		3720EDE7C8F881C7AFDF697B /* ServiceStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15AF7D2745E523BDA769E0F2 /* ServiceStatus.swift */; };
+		4FBCD6E63A3A8961E9891333 /* statuspage-major.json in Resources */ = {isa = PBXBuildFile; fileRef = AE8CDB73FBF4505CA0EE839D /* statuspage-major.json */; };
 		53B9D54635ACBDAE6E3E1D09 /* PSSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3852144F2AC76E0737339764 /* PSSApp.swift */; };
+		5926C30B3644ED25C0313FCC /* statuspage-minor.json in Resources */ = {isa = PBXBuildFile; fileRef = 1E4CC3F7CBB899C5149CA81A /* statuspage-minor.json */; };
+		5ABFB9FA0F57ECE22AE8E062 /* statuspage-none.json in Resources */ = {isa = PBXBuildFile; fileRef = 03E5920C39CB1ECB371FBA9E /* statuspage-none.json */; };
 		69CF96657AD1ACB753A7C5C9 /* PSSCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BBE4AEB089B8E44E165B2778 /* PSSCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		7176A5B32020C5C47C610DC5 /* StatusProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EBF6CB075A92A4D3E851489 /* StatusProvider.swift */; };
 		A75A34B1FF943D5B41F13F22 /* ServiceStateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E240D10800DF3C2EC8491C /* ServiceStateTests.swift */; };
+		AAFA4B14B9963C46EADF7674 /* StatuspageProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842BB71FBCF408D33D92F237 /* StatuspageProviderTests.swift */; };
 		C73F2F858F642E7521BEF275 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F42A8B7B1B556863BF754C8 /* Service.swift */; };
+		DBD2E12AA47BC3565AE8D848 /* statuspage-critical.json in Resources */ = {isa = PBXBuildFile; fileRef = FCED209D76069D4B36496621 /* statuspage-critical.json */; };
 		E69DA97CD8834BCA3E34FE78 /* PSSCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BBE4AEB089B8E44E165B2778 /* PSSCore.framework */; };
 /* End PBXBuildFile section */
 
@@ -90,22 +97,29 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		03E5920C39CB1ECB371FBA9E /* statuspage-none.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "statuspage-none.json"; sourceTree = "<group>"; };
 		0857F3F806899756370313E0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		0EBF6CB075A92A4D3E851489 /* StatusProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusProvider.swift; sourceTree = "<group>"; };
 		15AF7D2745E523BDA769E0F2 /* ServiceStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceStatus.swift; sourceTree = "<group>"; };
+		1E4CC3F7CBB899C5149CA81A /* statuspage-minor.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "statuspage-minor.json"; sourceTree = "<group>"; };
+		243CE78DFB0817548984A042 /* StatuspageProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatuspageProvider.swift; sourceTree = "<group>"; };
 		3852144F2AC76E0737339764 /* PSSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PSSApp.swift; sourceTree = "<group>"; };
 		65E240D10800DF3C2EC8491C /* ServiceStateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceStateTests.swift; sourceTree = "<group>"; };
 		7F42A8B7B1B556863BF754C8 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		8393E04D681F73D676A11C07 /* PSS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PSS.entitlements; sourceTree = "<group>"; };
+		842BB71FBCF408D33D92F237 /* StatuspageProviderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatuspageProviderTests.swift; sourceTree = "<group>"; };
 		849CF2FD52E30DD587262982 /* PSSWidget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = PSSWidget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		85FD6BDC1D42EB4EA90C175C /* ServiceState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceState.swift; sourceTree = "<group>"; };
 		982DA4CBA26F186857B6E49A /* .gitkeep */ = {isa = PBXFileReference; path = .gitkeep; sourceTree = "<group>"; };
 		9ED61BEDE67F58D808726B2E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		AE8CDB73FBF4505CA0EE839D /* statuspage-major.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "statuspage-major.json"; sourceTree = "<group>"; };
 		BBE4AEB089B8E44E165B2778 /* PSSCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PSSCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D36C38592CB843534A3E0AC0 /* PSSWidgetBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PSSWidgetBundle.swift; sourceTree = "<group>"; };
 		DAF21CF131EEFAB110765ED4 /* PSS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PSS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBC8844B9693C3A99A7DB648 /* StatusWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusWidget.swift; sourceTree = "<group>"; };
 		DBCAC992968F039238A42036 /* PSSCoreTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PSSCoreTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5A439AED18C44E70BF87F66 /* PSSWidget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PSSWidget.entitlements; sourceTree = "<group>"; };
+		FCED209D76069D4B36496621 /* statuspage-critical.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "statuspage-critical.json"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,6 +177,8 @@
 				7F42A8B7B1B556863BF754C8 /* Service.swift */,
 				85FD6BDC1D42EB4EA90C175C /* ServiceState.swift */,
 				15AF7D2745E523BDA769E0F2 /* ServiceStatus.swift */,
+				243CE78DFB0817548984A042 /* StatuspageProvider.swift */,
+				0EBF6CB075A92A4D3E851489 /* StatusProvider.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -171,6 +187,10 @@
 			isa = PBXGroup;
 			children = (
 				982DA4CBA26F186857B6E49A /* .gitkeep */,
+				FCED209D76069D4B36496621 /* statuspage-critical.json */,
+				AE8CDB73FBF4505CA0EE839D /* statuspage-major.json */,
+				1E4CC3F7CBB899C5149CA81A /* statuspage-minor.json */,
+				03E5920C39CB1ECB371FBA9E /* statuspage-none.json */,
 			);
 			path = Fixtures;
 			sourceTree = "<group>";
@@ -179,6 +199,7 @@
 			isa = PBXGroup;
 			children = (
 				65E240D10800DF3C2EC8491C /* ServiceStateTests.swift */,
+				842BB71FBCF408D33D92F237 /* StatuspageProviderTests.swift */,
 				8DC891C97ABB1867700B9E46 /* Fixtures */,
 			);
 			path = PSSTests;
@@ -214,6 +235,7 @@
 			buildConfigurationList = 5FD4B2AD63A9C6C57C26B8D3 /* Build configuration list for PBXNativeTarget "PSSCoreTests" */;
 			buildPhases = (
 				E3F73278B16963E4E18076B3 /* Sources */,
+				6DAB59446692EDAEEFE33C59 /* Resources */,
 				8571C819BA7C89FAB934B6D2 /* Frameworks */,
 				52E94F20B124646DB5FB1794 /* Embed Frameworks */,
 			);
@@ -320,6 +342,20 @@
 		};
 /* End PBXProject section */
 
+/* Begin PBXResourcesBuildPhase section */
+		6DAB59446692EDAEEFE33C59 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DBD2E12AA47BC3565AE8D848 /* statuspage-critical.json in Resources */,
+				4FBCD6E63A3A8961E9891333 /* statuspage-major.json in Resources */,
+				5926C30B3644ED25C0313FCC /* statuspage-minor.json in Resources */,
+				5ABFB9FA0F57ECE22AE8E062 /* statuspage-none.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		580FE6CA98D4CCFA2F9E7211 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -328,6 +364,8 @@
 				C73F2F858F642E7521BEF275 /* Service.swift in Sources */,
 				359E312248F310B9ECA9B6D5 /* ServiceState.swift in Sources */,
 				3720EDE7C8F881C7AFDF697B /* ServiceStatus.swift in Sources */,
+				7176A5B32020C5C47C610DC5 /* StatusProvider.swift in Sources */,
+				1D99B07BBA3F33DAEE387A2F /* StatuspageProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -353,6 +391,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A75A34B1FF943D5B41F13F22 /* ServiceStateTests.swift in Sources */,
+				AAFA4B14B9963C46EADF7674 /* StatuspageProviderTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

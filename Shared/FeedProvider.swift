@@ -28,7 +28,7 @@ public struct FeedProvider: StatusProvider {
             case let .xAI(productPath):
                 item.link.contains(productPath) && !item.containsResolvedStatus
             case .flashDuty:
-                !item.description.lowercased().contains("status: resolved")
+                !item.description.htmlText.lowercased().contains("status: resolved")
             }
         }
         let statuses = activeItems.compactMap { item -> (ServiceState, String)? in
@@ -72,6 +72,15 @@ public struct FeedProvider: StatusProvider {
         }
         if text.contains("maintenance") { return .maintenance }
         return nil
+    }
+}
+
+private extension String {
+    var htmlText: String {
+        replacingOccurrences(of: "<[^>]+>", with: " ", options: .regularExpression)
+            .components(separatedBy: .whitespacesAndNewlines)
+            .filter { !$0.isEmpty }
+            .joined(separator: " ")
     }
 }
 

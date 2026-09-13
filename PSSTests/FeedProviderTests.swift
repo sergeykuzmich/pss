@@ -21,7 +21,7 @@ final class FeedProviderTests: XCTestCase {
         XCTAssertEqual(status, ServiceStatus(service: .deepSeek, state: .outage, detail: "API availability"))
     }
 
-    func testDeepSeekResolvedItemsAreOperational() async throws {
+    func testDeepSeekResolvedItemsWithEscapedHTMLAreOperational() async throws {
         let status = try await fetchFixture("deepseek-resolved", kind: .flashDuty, service: .deepSeek)
 
         XCTAssertEqual(status, ServiceStatus(service: .deepSeek, state: .operational))

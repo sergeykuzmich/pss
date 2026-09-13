@@ -21,7 +21,7 @@ final class StatusStoreTests: XCTestCase {
     func testInitialSnapshotIsUnknownWhenCacheIsEmpty() {
         let refreshed = snapshot(at: 20, github: .operational)
         let store = StatusStore(
-            fetchSnapshot: { refreshed }, 
+            fetchSnapshot: { refreshed },
             loadCachedSnapshot: { nil },
             saveSnapshot: { _ in },
             reloadWidgets: {},

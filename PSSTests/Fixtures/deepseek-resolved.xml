@@ -4,7 +4,7 @@
     <item>
       <title>API incident</title>
       <link>https://status.deepseek.com/incidents/api-resolved</link>
-      <description>Status: resolved. Service unavailable earlier.</description>
+      <description>&lt;p&gt;&lt;strong&gt;Status:&lt;/strong&gt; resolved&lt;/p&gt; Service unavailable earlier.</description>
       <category>outage</category>
     </item>
   </channel>

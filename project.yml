@@ -24,10 +24,13 @@ targets:
       - PSS
     info:
       path: PSS/Info.plist
+      properties:
+        LSUIElement: true
     entitlements:
       path: PSS/PSS.entitlements
       properties:
         com.apple.security.app-sandbox: true
+        com.apple.security.network.client: true
         com.apple.security.application-groups:
           - group.com.sergeykuzmich.pss
     dependencies:

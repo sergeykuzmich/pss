@@ -19,6 +19,7 @@
 		359E312248F310B9ECA9B6D5 /* ServiceState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FD6BDC1D42EB4EA90C175C /* ServiceState.swift */; };
 		35C3512FBC5D37781E2BA174 /* aws-no-events.json in Resources */ = {isa = PBXBuildFile; fileRef = 0B3378D3939F7DA89880CBA0 /* aws-no-events.json */; };
 		3720EDE7C8F881C7AFDF697B /* ServiceStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15AF7D2745E523BDA769E0F2 /* ServiceStatus.swift */; };
+		42D5FBE8C0B09D208EA501DA /* StatusClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EACA2D755DF7FCF9B35EFB51 /* StatusClientTests.swift */; };
 		43E54C670620D661797F23F2 /* xai-active-major.xml in Resources */ = {isa = PBXBuildFile; fileRef = 7D60B08048EC0F1F030D80B5 /* xai-active-major.xml */; };
 		4FBCD6E63A3A8961E9891333 /* statuspage-major.json in Resources */ = {isa = PBXBuildFile; fileRef = AE8CDB73FBF4505CA0EE839D /* statuspage-major.json */; };
 		53B9D54635ACBDAE6E3E1D09 /* PSSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3852144F2AC76E0737339764 /* PSSApp.swift */; };
@@ -28,6 +29,7 @@
 		7176A5B32020C5C47C610DC5 /* StatusProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EBF6CB075A92A4D3E851489 /* StatusProvider.swift */; };
 		73417CF07DC956DA2E54ACCB /* deepseek-active.xml in Resources */ = {isa = PBXBuildFile; fileRef = B97A080445DAB5652BE409C7 /* deepseek-active.xml */; };
 		9625F67319332B3CF2C18735 /* xai-resolved.xml in Resources */ = {isa = PBXBuildFile; fileRef = 731371BCA36086CD2CC49E0E /* xai-resolved.xml */; };
+		97A0F291B2AAFF619C4D4307 /* StatusClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3A3759163884F11F66BACE /* StatusClient.swift */; };
 		9CCB1A925FFEC8DF71F801CB /* aws-current-events.json in Resources */ = {isa = PBXBuildFile; fileRef = 5116D79FFA2E1789ED6C9955 /* aws-current-events.json */; };
 		A75A34B1FF943D5B41F13F22 /* ServiceStateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E240D10800DF3C2EC8491C /* ServiceStateTests.swift */; };
 		AAFA4B14B9963C46EADF7674 /* StatuspageProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842BB71FBCF408D33D92F237 /* StatuspageProviderTests.swift */; };
@@ -35,8 +37,10 @@
 		BCB4EF2501AD0528A29D8EC6 /* deepseek-resolved.xml in Resources */ = {isa = PBXBuildFile; fileRef = B185CC320E5977262B4428D3 /* deepseek-resolved.xml */; };
 		C73F2F858F642E7521BEF275 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F42A8B7B1B556863BF754C8 /* Service.swift */; };
 		DBD2E12AA47BC3565AE8D848 /* statuspage-critical.json in Resources */ = {isa = PBXBuildFile; fileRef = FCED209D76069D4B36496621 /* statuspage-critical.json */; };
+		E2540068190DFCA061275D1D /* StatusCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B1B4631948C2A890B288CA /* StatusCache.swift */; };
 		E69DA97CD8834BCA3E34FE78 /* PSSCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BBE4AEB089B8E44E165B2778 /* PSSCore.framework */; };
 		EBFE18022D52B98E7FAAE59D /* FeedProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B1001D800D1013893DCDDDD /* FeedProvider.swift */; };
+		FFE50D162B824068D59F11C8 /* StatusCacheTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 306E1601B35EA6E6AD4C245B /* StatusCacheTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -109,12 +113,15 @@
 /* Begin PBXFileReference section */
 		03E5920C39CB1ECB371FBA9E /* statuspage-none.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "statuspage-none.json"; sourceTree = "<group>"; };
 		0857F3F806899756370313E0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		0A3A3759163884F11F66BACE /* StatusClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusClient.swift; sourceTree = "<group>"; };
 		0B3378D3939F7DA89880CBA0 /* aws-no-events.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "aws-no-events.json"; sourceTree = "<group>"; };
 		0EBF6CB075A92A4D3E851489 /* StatusProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusProvider.swift; sourceTree = "<group>"; };
 		15AF7D2745E523BDA769E0F2 /* ServiceStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceStatus.swift; sourceTree = "<group>"; };
 		1B1001D800D1013893DCDDDD /* FeedProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedProvider.swift; sourceTree = "<group>"; };
 		1E4CC3F7CBB899C5149CA81A /* statuspage-minor.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "statuspage-minor.json"; sourceTree = "<group>"; };
 		243CE78DFB0817548984A042 /* StatuspageProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatuspageProvider.swift; sourceTree = "<group>"; };
+		306E1601B35EA6E6AD4C245B /* StatusCacheTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusCacheTests.swift; sourceTree = "<group>"; };
+		34B1B4631948C2A890B288CA /* StatusCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusCache.swift; sourceTree = "<group>"; };
 		3852144F2AC76E0737339764 /* PSSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PSSApp.swift; sourceTree = "<group>"; };
 		5116D79FFA2E1789ED6C9955 /* aws-current-events.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "aws-current-events.json"; sourceTree = "<group>"; };
 		55F6E13699DEFB0D484431B9 /* FeedProviderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedProviderTests.swift; sourceTree = "<group>"; };
@@ -138,6 +145,7 @@
 		DBC8844B9693C3A99A7DB648 /* StatusWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusWidget.swift; sourceTree = "<group>"; };
 		DBCAC992968F039238A42036 /* PSSCoreTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PSSCoreTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5A439AED18C44E70BF87F66 /* PSSWidget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PSSWidget.entitlements; sourceTree = "<group>"; };
+		EACA2D755DF7FCF9B35EFB51 /* StatusClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusClientTests.swift; sourceTree = "<group>"; };
 		FCED209D76069D4B36496621 /* statuspage-critical.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "statuspage-critical.json"; sourceTree = "<group>"; };
 		FD2A9502E744A3E87C3573B5 /* AWSProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AWSProvider.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -199,6 +207,8 @@
 				7F42A8B7B1B556863BF754C8 /* Service.swift */,
 				85FD6BDC1D42EB4EA90C175C /* ServiceState.swift */,
 				15AF7D2745E523BDA769E0F2 /* ServiceStatus.swift */,
+				34B1B4631948C2A890B288CA /* StatusCache.swift */,
+				0A3A3759163884F11F66BACE /* StatusClient.swift */,
 				243CE78DFB0817548984A042 /* StatuspageProvider.swift */,
 				0EBF6CB075A92A4D3E851489 /* StatusProvider.swift */,
 			);
@@ -229,6 +239,8 @@
 				CEA046211889748188380CAE /* AWSProviderTests.swift */,
 				55F6E13699DEFB0D484431B9 /* FeedProviderTests.swift */,
 				65E240D10800DF3C2EC8491C /* ServiceStateTests.swift */,
+				306E1601B35EA6E6AD4C245B /* StatusCacheTests.swift */,
+				EACA2D755DF7FCF9B35EFB51 /* StatusClientTests.swift */,
 				842BB71FBCF408D33D92F237 /* StatuspageProviderTests.swift */,
 				8DC891C97ABB1867700B9E46 /* Fixtures */,
 			);
@@ -402,6 +414,8 @@
 				C73F2F858F642E7521BEF275 /* Service.swift in Sources */,
 				359E312248F310B9ECA9B6D5 /* ServiceState.swift in Sources */,
 				3720EDE7C8F881C7AFDF697B /* ServiceStatus.swift in Sources */,
+				E2540068190DFCA061275D1D /* StatusCache.swift in Sources */,
+				97A0F291B2AAFF619C4D4307 /* StatusClient.swift in Sources */,
 				7176A5B32020C5C47C610DC5 /* StatusProvider.swift in Sources */,
 				1D99B07BBA3F33DAEE387A2F /* StatuspageProvider.swift in Sources */,
 			);
@@ -431,6 +445,8 @@
 				21736CE420989ABDE1FAEF8E /* AWSProviderTests.swift in Sources */,
 				101AA509125B7736A67B2F3F /* FeedProviderTests.swift in Sources */,
 				A75A34B1FF943D5B41F13F22 /* ServiceStateTests.swift in Sources */,
+				FFE50D162B824068D59F11C8 /* StatusCacheTests.swift in Sources */,
+				42D5FBE8C0B09D208EA501DA /* StatusClientTests.swift in Sources */,
 				AAFA4B14B9963C46EADF7674 /* StatuspageProviderTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -1,0 +1,14 @@
+[
+  {
+    "status": "investigating",
+    "service_name": "Amazon Bedrock",
+    "summary": "Increased API error rates for Amazon Bedrock",
+    "event_log": [
+      {
+        "summary": "Investigating",
+        "message": "We are investigating increased error rates for Amazon Bedrock requests.",
+        "status": 1
+      }
+    ]
+  }
+]

@@ -5,8 +5,6 @@ settings:
   base:
     MACOSX_DEPLOYMENT_TARGET: 15.0
     SWIFT_VERSION: 6.0
-    CODE_SIGNING_ALLOWED: NO
-    CODE_SIGNING_REQUIRED: NO
 targets:
   PSSCore:
     type: framework

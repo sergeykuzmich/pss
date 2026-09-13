@@ -27,6 +27,21 @@ final class FeedProviderTests: XCTestCase {
         XCTAssertEqual(status, ServiceStatus(service: .deepSeek, state: .operational))
     }
 
+    func testUnrecognizedActiveIncidentIsUnknown() async throws {
+        let data = Data("""
+        <rss><channel><item>
+          <title>Service issue under investigation</title>
+          <link>https://status.deepseek.com/incidents/1</link>
+          <description>&lt;p&gt;&lt;strong&gt;Status:&lt;/strong&gt; investigating&lt;/p&gt;</description>
+        </item></channel></rss>
+        """.utf8)
+        let provider = FeedProvider(service: .deepSeek, kind: .flashDuty, endpoint: URL(string: "https://example.com/feed.rss")!)
+
+        let status = try await provider.fetch(using: FeedStubTransport(data: data, statusCode: 200))
+
+        XCTAssertEqual(status, ServiceStatus(service: .deepSeek, state: .unknown))
+    }
+
     func testMalformedXMLThrows() async {
         let provider = FeedProvider(service: .grok, kind: .xAI(productPath: "/grok-com/"), endpoint: URL(string: "https://example.com/feed.xml")!)
 

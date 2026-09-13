@@ -43,7 +43,7 @@ public struct FeedProvider: StatusProvider {
             return (state, item.title)
         }
         guard let highestSeverity = statuses.map(\.0.severity).max() else {
-            return ServiceStatus(service: service, state: .operational)
+            return ServiceStatus(service: service, state: activeItems.isEmpty ? .operational : .unknown)
         }
         let match = statuses.first { $0.0.severity == highestSeverity }!
         return ServiceStatus(service: service, state: match.0, detail: match.1)

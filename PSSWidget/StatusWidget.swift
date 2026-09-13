@@ -59,7 +59,39 @@ private struct StatusWidgetView: View {
 #Preview("Operational", as: .systemMedium) {
     StatusWidget()
 } timeline: {
-    StatusTimelineEntry(date: .now, snapshot: StatusSnapshot(updatedAt: .now, statuses: []))
+    StatusTimelineEntry(date: .now, snapshot: StatusSnapshot(updatedAt: .now, statuses: [
+        ServiceStatus(service: .github, state: .operational),
+        ServiceStatus(service: .openAI, state: .operational),
+        ServiceStatus(service: .claude, state: .operational),
+        ServiceStatus(service: .aws, state: .operational),
+        ServiceStatus(service: .grok, state: .operational),
+        ServiceStatus(service: .deepSeek, state: .operational),
+        ServiceStatus(service: .cursor, state: .operational)
+    ]))
+}
+
+#Preview("Operational", as: .systemLarge) {
+    StatusWidget()
+} timeline: {
+    StatusTimelineEntry(date: .now, snapshot: StatusSnapshot(updatedAt: .now, statuses: [
+        ServiceStatus(service: .github, state: .operational),
+        ServiceStatus(service: .openAI, state: .operational),
+        ServiceStatus(service: .claude, state: .operational),
+        ServiceStatus(service: .aws, state: .operational),
+        ServiceStatus(service: .grok, state: .operational),
+        ServiceStatus(service: .deepSeek, state: .operational),
+        ServiceStatus(service: .cursor, state: .operational)
+    ]))
+}
+
+#Preview("Mixed disruptions", as: .systemMedium) {
+    StatusWidget()
+} timeline: {
+    StatusTimelineEntry(date: .now, snapshot: StatusSnapshot(updatedAt: .now, statuses: [
+        ServiceStatus(service: .github, state: .maintenance),
+        ServiceStatus(service: .openAI, state: .minorDisruption),
+        ServiceStatus(service: .claude, state: .majorDisruption)
+    ]))
 }
 
 #Preview("Mixed disruptions", as: .systemLarge) {
@@ -84,6 +116,26 @@ private struct StatusWidgetView: View {
         ServiceStatus(service: .deepSeek, state: .outage),
         ServiceStatus(service: .cursor, state: .outage)
     ]))
+}
+
+#Preview("Outage", as: .systemLarge) {
+    StatusWidget()
+} timeline: {
+    StatusTimelineEntry(date: .now, snapshot: StatusSnapshot(updatedAt: .now, statuses: [
+        ServiceStatus(service: .github, state: .outage),
+        ServiceStatus(service: .openAI, state: .outage),
+        ServiceStatus(service: .claude, state: .outage),
+        ServiceStatus(service: .aws, state: .outage),
+        ServiceStatus(service: .grok, state: .outage),
+        ServiceStatus(service: .deepSeek, state: .outage),
+        ServiceStatus(service: .cursor, state: .outage)
+    ]))
+}
+
+#Preview("Unknown", as: .systemMedium) {
+    StatusWidget()
+} timeline: {
+    StatusTimelineEntry(date: .now, snapshot: .unknown(at: .now))
 }
 
 #Preview("Unknown", as: .systemLarge) {

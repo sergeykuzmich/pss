@@ -21,3 +21,16 @@ Executed 3 tests, with 0 failures
 xcodebuild build -project PSS.xcodeproj -scheme PSS -destination 'platform=macOS'
 ** BUILD SUCCEEDED **
 ```
+
+## Task 7 review follow-up
+
+Replaced the empty Operational preview input (which `StatusSnapshot` normalizes to all-Unknown) with seven explicit `.operational` service statuses. Expanded the WidgetKit previews to the required eight-cell matrix: Operational, mixed disruptions, Outage, and Unknown for both `systemMedium` and `systemLarge`.
+
+## Follow-up verification
+
+```text
+xcodebuild build -project PSS.xcodeproj -scheme PSS -destination 'platform=macOS'
+** BUILD SUCCEEDED **
+```
+
+The `PSS` scheme builds the PSS app and its `PSSWidget` extension in dependency order.

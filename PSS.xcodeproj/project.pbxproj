@@ -11,6 +11,7 @@
 		101AA509125B7736A67B2F3F /* FeedProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F6E13699DEFB0D484431B9 /* FeedProviderTests.swift */; };
 		162BE9BB318378F4D2084447 /* PSSWidgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = D36C38592CB843534A3E0AC0 /* PSSWidgetBundle.swift */; };
 		1D99B07BBA3F33DAEE387A2F /* StatuspageProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 243CE78DFB0817548984A042 /* StatuspageProvider.swift */; };
+		1E5AF8D96B1B8799991EA142 /* WidgetSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E13F39225B394E12150733E /* WidgetSnapshotTests.swift */; };
 		20F9D1A7E42A1CC030D04C6B /* PSSCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BBE4AEB089B8E44E165B2778 /* PSSCore.framework */; };
 		21736CE420989ABDE1FAEF8E /* AWSProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA046211889748188380CAE /* AWSProviderTests.swift */; };
 		26841BD4DE094F4790E33198 /* PSSCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BBE4AEB089B8E44E165B2778 /* PSSCore.framework */; };
@@ -35,6 +36,7 @@
 		A75A34B1FF943D5B41F13F22 /* ServiceStateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E240D10800DF3C2EC8491C /* ServiceStateTests.swift */; };
 		AAFA4B14B9963C46EADF7674 /* StatuspageProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842BB71FBCF408D33D92F237 /* StatuspageProviderTests.swift */; };
 		AE9183B85B0A5AE8BB2EA839 /* StatusRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDECC3066DB4992A0BCF0A2A /* StatusRowView.swift */; };
+		AF171B2E180EEEC971633AE2 /* WidgetSnapshotLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262AA729B778F41F8C99C556 /* WidgetSnapshotLoader.swift */; };
 		B7BBB7AFE272A62F9946A02D /* AWSProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD2A9502E744A3E87C3573B5 /* AWSProvider.swift */; };
 		BCB4EF2501AD0528A29D8EC6 /* deepseek-resolved.xml in Resources */ = {isa = PBXBuildFile; fileRef = B185CC320E5977262B4428D3 /* deepseek-resolved.xml */; };
 		C73F2F858F642E7521BEF275 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F42A8B7B1B556863BF754C8 /* Service.swift */; };
@@ -124,6 +126,7 @@
 		1B1001D800D1013893DCDDDD /* FeedProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedProvider.swift; sourceTree = "<group>"; };
 		1E4CC3F7CBB899C5149CA81A /* statuspage-minor.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "statuspage-minor.json"; sourceTree = "<group>"; };
 		243CE78DFB0817548984A042 /* StatuspageProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatuspageProvider.swift; sourceTree = "<group>"; };
+		262AA729B778F41F8C99C556 /* WidgetSnapshotLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetSnapshotLoader.swift; sourceTree = "<group>"; };
 		306E1601B35EA6E6AD4C245B /* StatusCacheTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusCacheTests.swift; sourceTree = "<group>"; };
 		34B1B4631948C2A890B288CA /* StatusCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusCache.swift; sourceTree = "<group>"; };
 		3852144F2AC76E0737339764 /* PSSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PSSApp.swift; sourceTree = "<group>"; };
@@ -137,6 +140,7 @@
 		842BB71FBCF408D33D92F237 /* StatuspageProviderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatuspageProviderTests.swift; sourceTree = "<group>"; };
 		849CF2FD52E30DD587262982 /* PSSWidget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = PSSWidget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		85FD6BDC1D42EB4EA90C175C /* ServiceState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceState.swift; sourceTree = "<group>"; };
+		8E13F39225B394E12150733E /* WidgetSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetSnapshotTests.swift; sourceTree = "<group>"; };
 		982DA4CBA26F186857B6E49A /* .gitkeep */ = {isa = PBXFileReference; path = .gitkeep; sourceTree = "<group>"; };
 		9ED61BEDE67F58D808726B2E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		AE8CDB73FBF4505CA0EE839D /* statuspage-major.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "statuspage-major.json"; sourceTree = "<group>"; };
@@ -222,6 +226,7 @@
 				0EBF6CB075A92A4D3E851489 /* StatusProvider.swift */,
 				FDECC3066DB4992A0BCF0A2A /* StatusRowView.swift */,
 				F7BBFFEF4830909C146B0A5D /* StatusStore.swift */,
+				262AA729B778F41F8C99C556 /* WidgetSnapshotLoader.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -254,6 +259,7 @@
 				EACA2D755DF7FCF9B35EFB51 /* StatusClientTests.swift */,
 				842BB71FBCF408D33D92F237 /* StatuspageProviderTests.swift */,
 				AF851CBC3B7F91020F72DFC9 /* StatusStoreTests.swift */,
+				8E13F39225B394E12150733E /* WidgetSnapshotTests.swift */,
 				8DC891C97ABB1867700B9E46 /* Fixtures */,
 			);
 			path = PSSTests;
@@ -432,6 +438,7 @@
 				AE9183B85B0A5AE8BB2EA839 /* StatusRowView.swift in Sources */,
 				7F9891BA091F4C3B3FED0DF1 /* StatusStore.swift in Sources */,
 				1D99B07BBA3F33DAEE387A2F /* StatuspageProvider.swift in Sources */,
+				AF171B2E180EEEC971633AE2 /* WidgetSnapshotLoader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -464,6 +471,7 @@
 				42D5FBE8C0B09D208EA501DA /* StatusClientTests.swift in Sources */,
 				F4589FB59702F34661CF1756 /* StatusStoreTests.swift in Sources */,
 				AAFA4B14B9963C46EADF7674 /* StatuspageProviderTests.swift in Sources */,
+				1E5AF8D96B1B8799991EA142 /* WidgetSnapshotTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

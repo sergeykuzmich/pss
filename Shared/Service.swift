@@ -40,7 +40,7 @@ public enum Service: String, CaseIterable, Codable, Identifiable, Sendable {
         case .aws:
             .awsHealth
         case .grok:
-            .xAIFeed(endpoint: URL(string: "https://status.x.ai/feed.rss")!, productPath: "/grok-com/")
+            .xAIFeed(endpoint: URL(string: "https://status.x.ai/feed.xml")!, productPath: "/grok-com/")
         case .deepSeek:
             .flashDutyFeed(endpoint: URL(string: "https://status.deepseek.com/feed.rss")!)
         case .cursor:

@@ -44,3 +44,32 @@
 
 - Xcode build/test emits Xcode's standard ambiguous macOS destination warning because both arm64 and x86_64 destinations are visible; it does not affect the successful selected arm64 build.
 - Status URLs and adapter configurations are intentionally foundations for Tasks 2–5; no network access or parsing is implemented in this task.
+
+## Fix Round: Review Findings
+
+### Changes
+
+- Added sandbox App Group entitlement `group.com.sergeykuzmich.pss` to `PSS/PSS.entitlements` and `PSSWidget/PSSWidget.entitlements`.
+- Added the WidgetKit extension declaration in `PSSWidget/Info.plist`: `NSExtension` / `NSExtensionPointIdentifier` = `com.apple.widgetkit-extension`.
+- Added custom `StatusSnapshot` decoding in `Shared/ServiceStatus.swift`; decoded statuses now route through `init(updatedAt:statuses:)`, preserving catalog order, filling omitted services as Unknown, and retaining the first of duplicate service entries.
+- Extended `PSSTests/ServiceStateTests.swift` with `testDecodingNormalizesMissingAndDuplicateServiceStatuses`.
+
+### RED/GREEN Evidence
+
+- **RED:** `xcodebuild test -project PSS.xcodeproj -scheme PSS -destination 'platform=macOS' -only-testing:PSSCoreTests/ServiceStateTests` failed as expected before custom decoding: decoded services were `[github, github]`, rather than the full catalog, and missing services were not Unknown.
+- **GREEN:** After custom decoding, the same command passed: `Executed 4 tests, with 0 failures` and `** TEST SUCCEEDED **`.
+
+### Verification Commands and Results
+
+1. `xcodebuild test -project PSS.xcodeproj -scheme PSS -destination 'platform=macOS' -only-testing:PSSCoreTests/ServiceStateTests` — passed: `Executed 4 tests, with 0 failures` / `** TEST SUCCEEDED **`.
+2. `xcodebuild build -project PSS.xcodeproj -scheme PSS -destination 'platform=macOS'` — `** BUILD SUCCEEDED **`.
+3. `plutil -lint PSS/PSS.entitlements PSSWidget/PSSWidget.entitlements PSSWidget/Info.plist` — all three files reported `OK`.
+4. `git diff --check` — passed with no output.
+
+### Test Coverage
+
+- `PSSTests/ServiceStateTests.swift`: verifies decoded snapshots normalize duplicate `github` rows to the first entry, fill each remaining catalog service as Unknown, and retain catalog order.
+
+### Concerns
+
+- Xcode continues to emit its standard ambiguous macOS destination warning because arm64 and x86_64 are both available; the selected arm64 test and build completed successfully.

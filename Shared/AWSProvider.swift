@@ -13,25 +13,27 @@ public struct AWSProvider: StatusProvider {
         }
 
         let events = try JSONDecoder().decode([Event].self, from: decodedData(from: data))
-        let text = events.map(Self.text(for:)).joined(separator: " ").lowercased()
-        return ServiceStatus(service: service, state: Self.state(for: events, text: text))
+        return ServiceStatus(service: service, state: Self.state(for: events))
     }
 
     private func decodedData(from data: Data) throws -> Data {
-        let text: String?
+        let encodings: [String.Encoding]
         if data.starts(with: [0xFE, 0xFF]) {
-            text = String(data: data, encoding: .utf16BigEndian)
+            encodings = [.utf16BigEndian]
         } else if data.starts(with: [0xFF, 0xFE]) {
-            text = String(data: data, encoding: .utf16LittleEndian)
+            encodings = [.utf16LittleEndian]
         } else {
-            let bigEndian = String(data: data, encoding: .utf16BigEndian)
-            text = bigEndian?.first == "[" || bigEndian?.first == "{" ? bigEndian : String(data: data, encoding: .utf8)
+            encodings = [.utf16BigEndian, .utf8]
         }
 
-        guard let text else {
-            throw URLError(.cannotDecodeContentData)
+        for encoding in encodings {
+            guard let text = String(data: data, encoding: encoding) else { continue }
+            let candidate = Data(text.utf8)
+            if (try? JSONSerialization.jsonObject(with: candidate)) != nil {
+                return candidate
+            }
         }
-        return Data(text.utf8)
+        throw URLError(.cannotDecodeContentData)
     }
 
     private static func text(for event: Event) -> String {
@@ -40,15 +42,17 @@ public struct AWSProvider: StatusProvider {
             .joined(separator: " ")
     }
 
-    private static func state(for events: [Event], text: String) -> ServiceState {
-        guard !events.isEmpty else { return .operational }
-        if text.contains("outage") || text.contains("disruption") {
-            return .outage
-        }
-        if text.contains("increased error") && text.contains("multiple services") {
-            return .majorDisruption
-        }
-        return .minorDisruption
+    private static func state(for events: [Event]) -> ServiceState {
+        events.map { event in
+            let text = Self.text(for: event).lowercased()
+            if text.contains("outage") || text.contains("disruption") {
+                return .outage
+            }
+            if text.contains("increased error") && text.contains("multiple services") {
+                return .majorDisruption
+            }
+            return .minorDisruption
+        }.max { $0.severity < $1.severity } ?? .operational
     }
 
     private struct Event: Decodable {

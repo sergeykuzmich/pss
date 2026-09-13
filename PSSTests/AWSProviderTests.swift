@@ -21,6 +21,19 @@ final class AWSProviderTests: XCTestCase {
         XCTAssertEqual(status.state, .operational)
     }
 
+    func testWhitespacePrefixedNonASCIIUTF16BigEndianResponseWithoutBOMDecodes() async throws {
+        let status = try await fetch(data: utf16BigEndianData(#"""
+          [{
+            "status": "investigating",
+            "service_name": "Amazon S3",
+            "summary": "Café latency",
+            "event_log": [{"summary": "Investigating", "message": "We are investigating.", "status": 1}]
+          }]
+        """#))
+
+        XCTAssertEqual(status.state, .minorDisruption)
+    }
+
     func testMultipleServicesWithIncreasedErrorsMapsToMajorDisruption() async throws {
         let status = try await fetch(data: utf16BigEndianData(#"""
         [{
@@ -47,6 +60,39 @@ final class AWSProviderTests: XCTestCase {
         XCTAssertEqual(status.state, .outage)
     }
 
+    func testMixedEventsDoNotCombineIncreasedErrorsAndMultipleServices() async throws {
+        let status = try await fetch(data: utf16BigEndianData(#"""
+        [
+          {
+            "status": "investigating",
+            "service_name": "Amazon EC2",
+            "summary": "Increased error rates",
+            "event_log": [{"summary": "Investigating", "message": "We are investigating increased errors.", "status": 1}]
+          },
+          {
+            "status": "investigating",
+            "service_name": "Multiple services",
+            "summary": "Routine maintenance",
+            "event_log": [{"summary": "Investigating", "message": "We are investigating maintenance.", "status": 1}]
+          }
+        ]
+        """#))
+
+        XCTAssertEqual(status.state, .minorDisruption)
+    }
+
+    func testUTF16BigEndianBOMResponseDecodes() async throws {
+        let status = try await fetch(data: utf16BigEndianBOMData("[]"))
+
+        XCTAssertEqual(status.state, .operational)
+    }
+
+    func testUTF16LittleEndianBOMResponseDecodes() async throws {
+        let status = try await fetch(data: utf16LittleEndianBOMData("[]"))
+
+        XCTAssertEqual(status.state, .operational)
+    }
+
     func testMalformedEncodingThrows() async {
         await XCTAssertThrowsErrorAsync {
             _ = try await self.fetch(data: Data([0xFF, 0xFE, 0x00]))
@@ -60,8 +106,13 @@ final class AWSProviderTests: XCTestCase {
     }
 
     func testTransportTimeoutPropagates() async {
-        await XCTAssertThrowsErrorAsync {
+        do {
             _ = try await AWSProvider().fetch(using: AWSFailingTransport(error: URLError(.timedOut)))
+            XCTFail("Expected timeout")
+        } catch let error as URLError {
+            XCTAssertEqual(error.code, .timedOut)
+        } catch {
+            XCTFail("Expected URLError.timedOut, got \(error)")
         }
     }
 
@@ -78,6 +129,14 @@ final class AWSProviderTests: XCTestCase {
 
     private func utf16BigEndianData(_ text: String) -> Data {
         text.data(using: .utf16BigEndian)!
+    }
+
+    private func utf16BigEndianBOMData(_ text: String) -> Data {
+        Data([0xFE, 0xFF]) + utf16BigEndianData(text)
+    }
+
+    private func utf16LittleEndianBOMData(_ text: String) -> Data {
+        Data([0xFF, 0xFE]) + text.data(using: .utf16LittleEndian)!
     }
 }
 

@@ -58,8 +58,8 @@ provider is confirmed healthy or unavailable.
 
 ## Refreshing and the widget
 
-PSS refreshes at launch. Select its menu-bar icon to present the status menu,
-then choose **Refresh** for a manual refresh. The latest snapshot is cached in
+PSS refreshes at launch, whenever you open its menu, and when you choose
+**Refresh** manually. The latest snapshot is cached in
 the shared App Group container and the app asks WidgetKit to reload after a
 successful refresh. Both the app and `PSSWidget`
 must be signed with the same App Group entitlement:

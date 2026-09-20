@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <item>
+      <title>Grok Web incident</title>
+      <link>https://status.x.ai/grok-com/incidents/resolved</link>
+      <description>Status: RESOLVED - Major incident fixed</description>
+      <category>major</category>
+    </item>
+    <item>
+      <title>Grok iOS outage</title>
+      <link>https://status.x.ai/incidents/grok-ios-outage</link>
+      <description>Critical outage</description>
+      <category>outage</category>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <item>
+      <title>Grok Web minor incident</title>
+      <link>https://status.x.ai/grok-com/incidents/minor</link>
+      <description>Partial service disruption &amp; elevated errors</description>
+      <category>minor</category>
+    </item>
+    <item>
+      <title>Grok Web major incident</title>
+      <link>https://status.x.ai/grok-com/incidents/major</link>
+      <description>Major disruption affecting Grok Web</description>
+      <category>major</category>
+    </item>
+    <item>
+      <title>Grok API outage</title>
+      <link>https://status.x.ai/incidents/api-outage</link>
+      <description>Critical outage</description>
+      <category>outage</category>
+    </item>
+  </channel>
+</rss>

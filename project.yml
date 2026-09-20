@@ -1,0 +1,87 @@
+name: PSS
+options:
+  minimumXcodeGenVersion: 2.46.0
+settings:
+  base:
+    MACOSX_DEPLOYMENT_TARGET: 15.0
+    SWIFT_VERSION: 6.0
+targets:
+  PSSCore:
+    type: framework
+    platform: macOS
+    sources:
+      - Shared
+    info:
+      path: PSSCore/Info.plist
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.sergeykuzmich.pss.core
+
+  PSS:
+    type: application
+    platform: macOS
+    sources:
+      - PSS
+    info:
+      path: PSS/Info.plist
+      properties:
+        LSUIElement: true
+    entitlements:
+      path: PSS/PSS.entitlements
+      properties:
+        com.apple.security.app-sandbox: true
+        com.apple.security.network.client: true
+        com.apple.security.application-groups:
+          - group.com.sergeykuzmich.pss
+    dependencies:
+      - target: PSSCore
+        embed: true
+      - target: PSSWidget
+        embed: true
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.sergeykuzmich.pss
+
+  PSSWidget:
+    type: app-extension
+    platform: macOS
+    sources:
+      - PSSWidget
+    info:
+      path: PSSWidget/Info.plist
+      properties:
+        NSExtension:
+          NSExtensionPointIdentifier: com.apple.widgetkit-extension
+    entitlements:
+      path: PSSWidget/PSSWidget.entitlements
+      properties:
+        com.apple.security.app-sandbox: true
+        com.apple.security.application-groups:
+          - group.com.sergeykuzmich.pss
+    dependencies:
+      - target: PSSCore
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.sergeykuzmich.pss.widget
+        PRODUCT_NAME: PSSWidget
+
+  PSSCoreTests:
+    type: bundle.unit-test
+    platform: macOS
+    sources:
+      - PSSTests
+    resources:
+      - path: PSSTests/Fixtures
+        buildPhase: resources
+    dependencies:
+      - target: PSSCore
+schemes:
+  PSS:
+    build:
+      targets:
+        PSS: all
+        PSSWidget: all
+        PSSCoreTests: [test]
+    test:
+      targets:
+        - PSSCoreTests

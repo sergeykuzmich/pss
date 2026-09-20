@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <item>
+      <title>API availability</title>
+      <link>https://status.deepseek.com/incidents/api-availability</link>
+      <description>Service unavailable &amp; requests are failing</description>
+      <category>minor</category>
+    </item>
+    <item>
+      <title>Web console latency</title>
+      <link>https://status.deepseek.com/incidents/console-latency</link>
+      <description>Minor latency is being investigated</description>
+      <category>minor</category>
+    </item>
+  </channel>
+</rss>

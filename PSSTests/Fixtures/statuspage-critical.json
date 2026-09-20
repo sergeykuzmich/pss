@@ -1,0 +1,6 @@
+{
+  "status": {
+    "indicator": "critical",
+    "description": "Critical Service Outage"
+  }
+}
